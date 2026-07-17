@@ -2108,6 +2108,202 @@ body,
   margin-left: auto !important;
 }
 
+/* Responsive stability: keep navigation and project cards proportional. */
+@media (max-width: 1179px) {
+  :root {
+    --desktop-min: 0px;
+  }
+
+  html,
+  body,
+  .portfolio,
+  .top-nav,
+  .floating-nav {
+    min-width: 0 !important;
+  }
+
+  body,
+  .portfolio {
+    overflow-x: hidden !important;
+  }
+
+  .floating-nav {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-areas: "logo pills" !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 10px clamp(14px, 3vw, 30px) 12px !important;
+  }
+
+  .floating-nav::before {
+    height: 60px !important;
+    border-bottom-left-radius: 22px !important;
+    border-bottom-right-radius: 22px !important;
+  }
+
+  .floating-nav .logo-lockup {
+    grid-area: logo !important;
+    justify-self: start !important;
+    transform: none !important;
+  }
+
+  .floating-current {
+    display: none !important;
+  }
+
+  .floating-nav .nav-pills {
+    grid-area: pills !important;
+    min-width: 0 !important;
+    justify-self: stretch !important;
+    justify-content: flex-end !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .floating-nav .nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .floating-nav .nav-pills a {
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    height: 34px !important;
+    padding: 0 12px !important;
+    font-size: 12px !important;
+  }
+
+  #brand .projects-section,
+  #packaging .projects-section {
+    padding-right: clamp(74px, 9vw, 104px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-nav,
+  .floating-nav {
+    min-height: 54px !important;
+    align-items: center !important;
+  }
+
+  .floating-nav {
+    gap: 8px !important;
+    padding: 8px 10px 10px !important;
+  }
+
+  .floating-nav::before {
+    height: 54px !important;
+    border-bottom-left-radius: 18px !important;
+    border-bottom-right-radius: 18px !important;
+  }
+
+  .home-nav .nav-pills,
+  .floating-nav .nav-pills {
+    justify-content: flex-start !important;
+  }
+
+  .home-nav .nav-pills a,
+  .floating-nav .nav-pills a {
+    height: 30px !important;
+    padding: 0 9px !important;
+    font-size: 11px !important;
+  }
+
+  .floating-nav .logo-lockup span {
+    height: 28px !important;
+    padding: 0 8px !important;
+    font-size: 10px !important;
+  }
+
+  #brand .projects-section,
+  #packaging .projects-section {
+    padding-right: 16px !important;
+  }
+
+  .project-groups {
+    margin-top: 24px !important;
+  }
+
+  .project-stack,
+  .project-stack:last-child {
+    margin-bottom: 16px !important;
+  }
+
+  .project-stack + .project-stack {
+    margin-top: 16px !important;
+  }
+
+  .project-card {
+    padding: 10px !important;
+    border-width: 1.5px !important;
+    border-radius: 18px !important;
+  }
+
+  .project-top {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-areas:
+      "number category"
+      "number title" !important;
+    column-gap: 9px !important;
+    row-gap: 2px !important;
+    align-items: center !important;
+    min-height: 42px !important;
+    margin-bottom: 9px !important;
+  }
+
+  .project-big-number {
+    font-size: 17px !important;
+    white-space: nowrap !important;
+  }
+
+  .project-category {
+    overflow: hidden !important;
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .project-top h3 {
+    overflow: hidden !important;
+    font-size: clamp(20px, 5.8vw, 27px) !important;
+    line-height: 1 !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .project-images {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+    overflow: hidden !important;
+    border-radius: 10px !important;
+  }
+
+  .project-images img,
+  .project-large {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    border-radius: 10px !important;
+    object-fit: contain !important;
+  }
+
+  #brand,
+  #packaging,
+  #poster,
+  #photo,
+  #illustration,
+  #type,
+  .project-stack {
+    scroll-margin-top: 64px;
+  }
+}
+
 @media (min-width: 768px) {
   .line-one,
   .line-two {
