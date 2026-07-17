@@ -2318,3 +2318,120 @@ body,
 .tilted-card-img {
   border-radius: 8px !important;
 }
+
+/* Use a stable list layout before desktop project cards become compressed. */
+@media (max-width: 1023px) {
+  #brand .projects-section,
+  #packaging .projects-section {
+    padding-right: 16px !important;
+  }
+
+  .brand-side-nav {
+    display: none !important;
+  }
+
+  .project-stack,
+  .project-stack:last-child {
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 0 18px !important;
+  }
+
+  .project-stack + .project-stack {
+    margin-top: 18px !important;
+  }
+
+  .project-stage {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    filter: drop-shadow(0 12px 24px rgba(18, 80, 232, 0.1)) !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .project-card {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 0 14px !important;
+    padding: clamp(10px, 2vw, 16px) !important;
+    overflow: hidden !important;
+    border-width: 1.5px !important;
+    border-radius: clamp(18px, 3vw, 26px) !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .project-top {
+    grid-template-columns: clamp(38px, 7vw, 58px) minmax(0, 1fr) !important;
+    grid-template-areas:
+      "number category"
+      "number title" !important;
+    column-gap: clamp(8px, 1.5vw, 14px) !important;
+    row-gap: 2px !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    min-height: clamp(42px, 7vw, 58px) !important;
+    margin-bottom: clamp(9px, 1.5vw, 14px) !important;
+  }
+
+  .project-big-number {
+    min-width: 0 !important;
+    font-size: clamp(17px, 2.8vw, 24px) !important;
+    white-space: nowrap !important;
+  }
+
+  .project-category,
+  .project-top h3 {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .project-category {
+    font-size: clamp(9px, 1.6vw, 13px) !important;
+  }
+
+  .project-top h3 {
+    font-size: clamp(20px, 4.5vw, 36px) !important;
+    line-height: 1 !important;
+  }
+
+  .project-images {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+    overflow: hidden !important;
+    border-radius: clamp(10px, 2vw, 16px) !important;
+  }
+
+  .project-left {
+    display: none !important;
+  }
+
+  .project-images img,
+  .project-large {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 16 / 9 !important;
+    border-radius: inherit !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+  }
+}
