@@ -2320,7 +2320,7 @@ body,
 }
 
 /* Use a stable list layout before desktop project cards become compressed. */
-@media (max-width: 1023px) {
+@media (max-width: 1179px) {
   #brand .projects-section,
   #packaging .projects-section {
     padding-right: 16px !important;
