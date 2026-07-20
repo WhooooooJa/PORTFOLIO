@@ -315,6 +315,7 @@ function setupPortfolioLightbox() {
   if (!lightbox || !lightboxImage) return;
   let lockedScrollY = 0;
   let previousScrollBehavior = "";
+  let previewRequestId = 0;
 
   function lockPageScroll() {
     lockedScrollY = window.scrollY;
@@ -347,15 +348,31 @@ function setupPortfolioLightbox() {
       target.closest(".tilted-card-figure")?.querySelector("img");
     if (!image) return;
     event.preventDefault();
-    lightboxImage.src = image.currentSrc || image.src;
+    const requestId = ++previewRequestId;
+    const previewSrc = image.currentSrc || image.src;
+    const fullSrc = image.dataset.fullSrc || previewSrc;
+
+    lightboxImage.src = previewSrc;
     lightboxImage.alt = image.alt || "";
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden", "false");
     lockPageScroll();
+
+    if (fullSrc !== previewSrc) {
+      const fullImage = new Image();
+      fullImage.decoding = "async";
+      fullImage.onload = () => {
+        if (requestId === previewRequestId && lightbox.classList.contains("open")) {
+          lightboxImage.src = fullSrc;
+        }
+      };
+      fullImage.src = fullSrc;
+    }
   });
 
   function closeLightbox() {
     if (!lightbox.classList.contains("open")) return;
+    previewRequestId += 1;
     lightbox.classList.remove("open");
     lightbox.setAttribute("aria-hidden", "true");
     lightboxImage.removeAttribute("src");

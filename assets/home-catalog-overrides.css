@@ -2340,6 +2340,16 @@ body,
   object-fit: contain !important;
 }
 
+/* Defer off-screen portfolio bands while preserving their scroll footprint. */
+.work-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 2600px;
+}
+
+.masonry .tilted-card-img {
+  background: #eceef1;
+}
+
 /* Use a stable list layout before desktop project cards become compressed. */
 @media (max-width: 1179px) {
   #brand .projects-section,
