@@ -2319,6 +2319,27 @@ body,
   border-radius: 8px !important;
 }
 
+/* Keep masonry artwork at its intrinsic ratio on every viewport. */
+.masonry .tilted-card-figure,
+.masonry .tilted-card-inner {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+}
+
+.masonry > img,
+.masonry .tilted-card-img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+}
+
 /* Use a stable list layout before desktop project cards become compressed. */
 @media (max-width: 1179px) {
   #brand .projects-section,
