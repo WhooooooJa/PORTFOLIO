@@ -286,6 +286,28 @@ function enhanceTiltedCards() {
 
 enhanceTiltedCards();
 
+function setupImageLoadRecovery() {
+  const retryDelay = 900;
+  const maxRetries = 2;
+
+  document.addEventListener("error", (event) => {
+    const image = event.target;
+    if (!(image instanceof HTMLImageElement) || !image.src) return;
+
+    const retryCount = Number(image.dataset.retryCount || 0);
+    if (retryCount >= maxRetries) return;
+
+    image.dataset.retryCount = String(retryCount + 1);
+    window.setTimeout(() => {
+      const retryUrl = new URL(image.currentSrc || image.src, window.location.href);
+      retryUrl.searchParams.set("retry", String(retryCount + 1));
+      image.src = retryUrl.href;
+    }, retryDelay * (retryCount + 1));
+  }, true);
+}
+
+setupImageLoadRecovery();
+
 function setupPortfolioLightbox() {
   const lightbox = document.querySelector(".lightbox");
   const lightboxImage = lightbox?.querySelector("img");
